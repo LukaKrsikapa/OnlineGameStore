@@ -1,0 +1,38 @@
+﻿@using ZavrsniRad.ViewModels;
+@model ShoppingCartViewModel
+
+<table class="table table-dark table-striped">
+    <thead>
+        <tr>
+            <th scope="col">#</th>
+            <th scope="col">Title</th>
+            <th scope="col">Publisher</th>
+            <th scope="col">Price</th>
+        </tr>
+    </thead>
+    <tbody>
+    @if(Model.ShoppingCart != null)
+    {
+        int i = 1;
+        @foreach (ShoppingCartItem s in Model.ShoppingCart.ShoppingCartItems)
+        {
+                <tr>
+                    <th>@i</th>
+                    <td>@s.Game.Name</td>
+                    <td>@s.Game.Publisher.Name</td>
+                    <td>@s.Game.Price.ToString("c")</td>
+                </tr>
+                i++;
+        }
+    }
+    <tr>
+            <td>Total: @Model.TotalPrice.ToString("c")</td>
+            <td></td>
+            <td></td>
+            <td></td>
+    </tr>
+    </tbody>
+</table>
+
+<a class="btn btn-success" asp-controller="Order" asp-action="Checkout">Checkout</a>
+<a class="btn btn-warning" asp-controller="Game" asp-action="List">Continue shopping</a>

@@ -1,0 +1,120 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>GamesStore</title>
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/ZavrsniRad.styles.css" asp-append-version="true" />
+    <script>
+        //(function VremeDana(){
+        //    var currentTime = new Date().getHours();
+        //    if (currentTime >= 6 && currentTime <= 12) {
+        //        alert("Dobro jutro");
+        //    }
+        //    else if(currentTime > 12 && currentTime <= 18){
+        //        alert("Dobar dan");
+        //    }
+        //    else {
+        //        alert("Dobro vece");
+        //    }
+        //})();
+
+        //(function DanasnjiDan(){
+        //    var dayNum = new Date().getDay();
+
+        //    switch(dayNum){
+        //        case 0:
+        //            alert("Nedelja");
+        //            break;
+        //        case 1:
+        //            alert("Ponedeljak");
+        //            break;
+        //        case 2:
+        //            alert("Utorak");
+        //            break;
+        //        case 3:
+        //            alert("Sreda");
+        //            break;
+        //        case 4:
+        //            alert("Cetvrtak");
+        //            break;
+        //        case 5:
+        //            alert("Petak");
+        //            break;
+        //        case 6:
+        //            alert("Subota");
+        //            break;
+        //    }
+        //})();
+    </script>
+</head>
+<body>
+    <header>
+        <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light box-shadow mb-3">
+            <div class="container-fluid">
+                <a class="navbar-brand" style="font-size:xx-large" asp-area="" asp-controller="Home" asp-action="Index">GamesStore</a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target=".navbar-collapse" aria-controls="navbarSupportedContent"
+                        aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
+                    <ul class="navbar-nav flex-grow-1">
+                        <li class="nav-item">
+                            <a class="navBtnMargin btn btn-dark rounded-pill px-3" style="color: #ff6d00;" asp-area="" asp-controller="Home" asp-action="Index">Home</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="navBtnMargin btn btn-dark rounded-pill px-3" style="color: #ff6d00;" asp-area="" asp-controller="Home" asp-action="Contact">Contact</a>
+                        </li>
+                        <li>
+                            <form class="d-flex" asp-controller="Game" asp-action="List">
+                                <select class="form-select navbarSearch" aria-label="Default select example" name="genreId">
+                                    <option value="0" selected>All Games</option>
+                                    <option value="1">Survival</option>
+                                    <option value="2">Fighter</option>
+                                    <option value="3">Racing</option>
+                                    <option value="4">Adventure</option>
+                                    <option value="5">Sport</option>
+                                    <option value="6">RPG</option>
+                                </select>
+
+                                <input class="form-control me-2 navbarSearch" type="search" placeholder="Search for games" name="search" aria-label="search">
+                                <button class="btn btn-success" type="submit">Search</button>
+                            </form>
+                        </li>
+                        <partial name="_LoginPartial"/>
+                        @if (User.IsInRole("Admin"))
+                        {
+                            <li class="nav-item">
+                                <a class="navBtnMargin btn btn-dark rounded-pill px-3" style="color: #ff6d00;" asp-area="" asp-controller="Home" asp-action="AdminPage">Secret Admin Button</a>
+                            </li>
+                        }
+                    </ul>
+                    <a class="btn btn-dark fLeft redText" asp-controller="ShoppingCart" asp-action="Index">
+                        <svg width="16" height="16" fill="currentColor" class="bi bi-cart" viewBox="0 0 16 16">
+                            <path d="M0 1.5A.5.5 0 0 1 .5 1H2a.5.5 0 0 1 .485.379L2.89 3H14.5a.5.5 0 0 1 .491.592l-1.5 8A.5.5 0 0 1 13 12H4a.5.5 0 0 1-.491-.408L2.01 3.607 1.61 2H.5a.5.5 0 0 1-.5-.5zM3.102 4l1.313 7h8.17l1.313-7H3.102zM5 12a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm7 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm-7 1a1 1 0 1 1 0 2 1 1 0 0 1 0-2zm7 0a1 1 0 1 1 0 2 1 1 0 0 1 0-2z" />
+                        </svg>
+                        Cart
+                    </a>
+                </div>
+            </div>
+        </nav>
+    </header>
+    <div class="container">
+        <main role="main" class="pb-3">
+            @RenderBody()
+        </main>
+    </div>
+
+    <footer>
+        <div class="container">
+            &copy; 2023 - ZavrsniRad - <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
+        </div>
+    </footer>
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="~/js/site.js" asp-append-version="true"></script>
+    @await RenderSectionAsync("Scripts", required: false)
+</body>
+</html>

@@ -1,0 +1,134 @@
+html {
+  font-size: 14px;
+}
+
+@media (min-width: 768px) {
+  html {
+    font-size: 16px;
+  }
+}
+
+html {
+  position: relative;
+  min-height: 100%;
+}
+
+body {
+    margin-bottom: 60px;
+    color: white;
+    background-image: url(/img/Background/FuturisticLightsBackground.jpg);
+    background-size: contain;
+    background-repeat:round;
+
+}
+
+nav {
+    background-image: linear-gradient(to bottom right, #670606, #000000);
+}
+
+footer {
+    background-color: #000000;
+    color: white;
+    position: absolute;
+    bottom: 0;
+}
+
+table {
+    background-color: grey;
+    outline-color: black;
+    outline: dashed;
+}
+
+th {
+    outline-color: black;
+    outline: solid;
+}
+
+.fLeft{
+    float:left;
+}
+
+.navbarSearch {
+    background-color: #212529;
+    color: #DB6D0D;
+    margin-left: 10px;
+}
+
+.redText {
+    color: #DB6D0D;
+}
+
+.tableDiv{
+    margin-left: 5px;
+    margin-right: 5px;
+}
+
+.center{
+    display:block;
+    margin-left:auto;
+    margin-right:auto;
+}
+
+.centerAndBold {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+    font:bolder;
+    font-size:larger;
+}
+
+.tableContainer {
+    position: relative;
+    display: inline-block;
+    background-color: #000000aa;
+    padding-bottom:7px;
+}
+
+.image {
+    display: block;
+    margin: 0 auto;
+    width: 1200px;
+    height:auto;
+    z-index:1;
+}
+
+.text {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: white;
+    font-size: 24px;
+    text-align: center;
+    z-index: 1;
+}
+
+.navBtnMargin{
+    margin:3px;
+}
+
+.dark-background {
+    background-color: #000000aa;
+    color: #ffffffaa;
+    padding: 10px;
+}
+
+.carouselOutline{
+    outline-style:solid;
+    outline-width:thick;
+    outline-color:black;
+}
+
+.mapOutline{
+    outline-style:dashed;
+    outline-width:thick;
+    outline-color:black;
+}
+
+.mapBackground {
+    background-color: #ffffff90;
+    padding: 10px;
+    width: fit-content;
+    height: fit-content;
+}

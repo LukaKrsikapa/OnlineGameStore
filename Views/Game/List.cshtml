@@ -1,0 +1,28 @@
+﻿@model IEnumerable<Game>
+<table style="margin-left:auto; margin-right:auto;">
+    @foreach(Game game in Model)
+    {
+        <tr>
+            <th>
+                <div class="tableContainer">
+                    <img src="@game.Thumbnail" class="image">
+                    <div class="text tableContainer">
+                        <div class="tableDiv">@game.Description</div>
+                        <a class="tableDiv" style="color:yellow" asp-controller="Game" asp-action="GenreDetail" asp-route-genreId=@game.GenreId>@game.Genre.Name</a>
+
+                        @if (game.IsOnSale)
+                        {
+                            <div class="tableDiv" style="color:limegreen">SALE: @game.Price.ToString("C")</div>
+                        }
+                        else
+                        {
+                            <div class="tableDiv">@game.Price.ToString("C")</div>
+                        }
+
+                        <a class="btn btn-success tableDiv" asp-controller="ShoppingCart" asp-action="AddToShoppingCart" asp-route-gameId="@game.Id">Add To Cart</a>
+                    </div>
+                </div>
+            </th>
+        </tr>
+    }
+</table>

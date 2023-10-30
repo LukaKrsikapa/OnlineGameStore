@@ -1,0 +1,38 @@
+﻿@using ZavrsniRad.ViewModels;
+@model GenreViewModel
+
+<div class="dark-background centerAndBold">
+    @Model.GenreDescription
+</div>
+<br />
+<p class="dark-background centerAndBold">
+    Games in this genre:
+</p>
+
+<table style="margin-left:auto; margin-right:auto;">
+    @foreach (Game game in Model.Games)
+    {
+        <tr>
+            <th>
+                <div class="tableContainer">
+                    <img src="@game.Thumbnail" class="image">
+                    <div class="text tableContainer">
+                        <div class="tableDiv">@game.Description</div>
+                        <div class="tableDiv" style="color:yellow">@game.Genre.Name</div>
+
+                        @if (game.IsOnSale)
+                        {
+                            <div class="tableDiv" style="color:limegreen">SALE: @game.Price.ToString("C")</div>
+                        }
+                        else
+                        {
+                            <div class="tableDiv">@game.Price.ToString("C")</div>
+                        }
+
+                        <a class="btn btn-success tableDiv">Add To Cart</a>
+                    </div>
+                </div>
+            </th>
+        </tr>
+    }
+</table>
